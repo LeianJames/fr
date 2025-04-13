@@ -29,8 +29,11 @@ function navigateToBookLocation(book) {
     'Financial': 'Financial Books/financial.html',
     'Religion': 'Religion Books/religion.html',
     'Technology': 'Technology Books/technology.html',
-    'Fiction': 'Fiction/fiction.html'
-    // Add other categories and their URLs as needed
+    'Fiction': 'Fiction/fiction.html',
+    'Filipiniana': 'Filipiniana Books/ filipiniana.html',
+    'Criminology': 'Criminology Books/ criminology.html',
+    'SelfGrowth': 'SelfGrowth Books/ selfgrowth.html'
+
   };
  
   // Get the URL for the book's category

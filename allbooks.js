@@ -1,6 +1,6 @@
-// allbooks.js - Contains all book collections
+// allbooks.js - Contains all book collections LAGYAN MO NG COMMA IF MAGDADAGDAG KA BOOKS
 
-// Academic books collection
+// Academic books collection LAGYAN MO NG COMMA IF MAGDADAGDAG KA BOOKS
 const academicBooks = [
     {
       id: 1,
@@ -28,7 +28,7 @@ const academicBooks = [
     }
   ];
   
-  // Financial books collection
+  // Financial books collection LAGYAN MO NG COMMA IF MAGDADAGDAG KA BOOKS
   const financialBooks = [
     {
       id: 1,
@@ -101,7 +101,14 @@ const academicBooks = [
       description: "Book - 464 pages;",
       location: "Nova Schola Main Library",
       category: "Technology"
+    },
+    {
+
+
     }
+
+
+
   ];
   
   // Fiction books collection
@@ -122,7 +129,55 @@ const academicBooks = [
       location: "Nova Schola Main Library",
       category: "Fiction"
     }
+    
   ];
+
+
+  const criminologybooks = [
+    {
+      id: 1,
+      title: "James and the Giant Peach",
+      author: "Roald Dahl, author.",
+      description: "Book - 230 pages;",
+      location: "Nova Schola Main Library",
+      category: "Fiction"
+    },
+
+
+
+
+  ] 
+
+  const selfGrowthBooks = [
+    {
+      id: 1,
+      title: "testing lang ito ",
+      author: "Roald Dahl, author.",
+      description: "Book - 230 pages;",
+      location: "Nova Schola Main Library",
+      category: "Fiction"
+    },
+
+
+
+
+  ]
+// ito ay thesis, nilagay ko lang filipiniana//
+  const filipinianaBooks = [
+    {
+      id: 1,
+      title: "James and the Giant Peach",
+      author: "Roald Dahl, author.",
+      description: "Book - 230 pages;",
+      location: "Nova Schola Main Library",
+      category: "Fiction"
+    },
+
+
+
+
+  ]
+
   
   // Create a database object with all book collections
   const database = {
@@ -131,12 +186,21 @@ const academicBooks = [
       ...financialBooks, 
       ...religiousBooks, 
       ...technologyBooks, 
-      ...fictionBooks
+      ...fictionBooks,
+      ...criminologybooks,
+      ...selfGrowthBooks,
+      ...filipinianaBooks,
+
     ],
     "Articles": [], // You can add article data here
     "Website": []  // You can add website data here
   };
   
+  
+
+
+
+
   // Function to get all book titles for autocomplete
   function getAllTitles() {
     const titles = [];
