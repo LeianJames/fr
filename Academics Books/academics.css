@@ -128,12 +128,16 @@
 .availability-popup {
   display: none;
   position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
+  z-index: 1001;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+
+  
 }
 
 .popup-content {

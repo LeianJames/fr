@@ -6,17 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    // Show manage accounts button for admin users
-    if (userRole === 'admin') {
-        const navDiv = document.querySelector('.navbar .container div');
-        const manageAccountsBtn = document.createElement('button');
-        manageAccountsBtn.type = 'button';
-        manageAccountsBtn.className = 'btn btn-outline-primary me-2';
-        manageAccountsBtn.id = 'manageAccountsBtn';
-        manageAccountsBtn.textContent = 'Manage Accounts';
-        manageAccountsBtn.style.display = 'inline-block';
-        navDiv.prepend(manageAccountsBtn);
-    }
+   
 
     // Add smooth scrolling for sidebar links if they exist
     document.querySelectorAll('.sidebar a[href^="#"]').forEach(anchor => {

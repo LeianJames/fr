@@ -1,4 +1,4 @@
-// Database of books for the e-library
+// Database of books for the e-library, palitan yung savebooks and loadbooks function
 let books = [
   {
     id: 1,
@@ -44,12 +44,12 @@ let books = [
 
 // Function to save books data to localStorage
 function saveBooks() {
-  localStorage.setItem('libraryBooks', JSON.stringify(books));
+  localStorage.setItem('criminologybooks', JSON.stringify(books));
 }
 
 // Function to load books data from localStorage
 function loadBooks() {
-  const savedBooks = localStorage.getItem('libraryBooks');
+  const savedBooks = localStorage.getItem('criminologybooksBooks');
   if (savedBooks) {
     books = JSON.parse(savedBooks);
   }

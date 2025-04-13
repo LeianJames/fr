@@ -19,7 +19,7 @@ async function updatePasswords() {
         // Format: { username: 'admin', password: 'your_password' }
         // ===========================================
         const admins = [
-            { username: 'admin', password: 'cupofjoe' }
+            { username: 'Lei', password: 'cupofjoe' }
         ];
 
         for (const admin of admins) {
@@ -47,7 +47,7 @@ async function updatePasswords() {
         // ===========================================
         const students = [
             { student_id: '2023SHS0176', password: 'JADE' },
-            { student_id: '2023002', password: 'james' },
+            { student_id: '2023SHS0008', password: 'XYLOPHONE' },
             { student_id: '2023003', password: 'santos' }
         ];
 
@@ -124,7 +124,7 @@ async function initializeDatabase() {
         // To add more admins, add more objects to the array
         // ===========================================
         const admins = [
-            { username: 'admin', password: 'cupofjoe' }
+            { username: 'Lei', password: 'cupofjoe' }
         ];
 
         for (const admin of admins) {
@@ -153,7 +153,7 @@ async function initializeDatabase() {
         // ===========================================
         const students = [
             { student_id: '2023SHS0176', password: 'JADE' },
-            { student_id: '2023002', password: 'james' },
+            { student_id: '2023SHS0008', password: 'XYLOPHONE' },
             { student_id: '2023003', password: 'santos' }
         ];
 

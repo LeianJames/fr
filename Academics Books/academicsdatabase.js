@@ -1,4 +1,4 @@
-// Database of books for the e-library
+// Database of books for the e-library //palitan yung savebooks and loadbooks function
 let books = [
   {
     id: 1,
