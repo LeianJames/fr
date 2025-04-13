@@ -46,7 +46,7 @@ async function updatePasswords() {
         // Example: { student_id: '2023001', password: 'studentpass' }
         // ===========================================
         const students = [
-            { student_id: '2023001', password: 'newpass' },
+            { student_id: '2023SHS0176', password: 'JADE' },
             { student_id: '2023002', password: 'james' },
             { student_id: '2023003', password: 'santos' }
         ];
@@ -152,7 +152,7 @@ async function initializeDatabase() {
         // Example: { student_id: '2023004', password: 'newstudent' }
         // ===========================================
         const students = [
-            { student_id: '2023001', password: 'newpass' },
+            { student_id: '2023SHS0176', password: 'JADE' },
             { student_id: '2023002', password: 'james' },
             { student_id: '2023003', password: 'santos' }
         ];

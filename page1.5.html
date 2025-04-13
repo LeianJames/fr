@@ -36,6 +36,33 @@
         border-radius: 8px;
         margin-top: 20px;
       }
+      .featured-books {
+        margin-top: 30px;
+        margin-bottom: 40px;
+      }
+      .book-item {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+      }
+      .book-number {
+        font-weight: bold;
+        margin-right: 15px;
+        min-width: 25px;
+      }
+      .book-title {
+        font-size: 1.1em;
+        margin-bottom: 5px;
+      }
+      .book-author, .book-description {
+        margin: 5px 0;
+        color: #333;
+      }
+      .book-location {
+        font-style: italic;
+        color: #666;
+      }
     </style>
   </head>
   <body>
@@ -99,10 +126,6 @@
         </div>
       </div>
 
-      <!-- Books Section -->
-      <div id="books-container"></div>
-    </div>
-
     <!-- Footer -->
     <footer class="bg-body-tertiary py-3 mt-4">
       <div class="container">
@@ -112,7 +135,7 @@
           </div>
           <div class="col-md-6 text-end">
             <p class="mb-0">© 2025 Nova Schola Tanauan</p>
-            <small>Ground Floor, Bldg. A, NST Campus, A. Mabini Ave, Brgy. Sambat, Tanauan City</small>
+            <small>Second Floor, Bldg. C, NST Campus, A. Mabini Ave, Brgy. Sambat, Tanauan City</small>
           </div>
         </div>
       </div>
@@ -123,6 +146,16 @@
     <script>
       // Add event listener for logout button
       document.getElementById('logoutBtn').addEventListener('click', logout);
+      
+      // Logout function
+      function logout() {
+        // Clear user session data
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('username');
+        
+        // Redirect to login page
+        window.location.href = 'page1.html';
+      }
     </script>
   </body>
 </html>

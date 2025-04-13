@@ -11,7 +11,7 @@ const port = 3000;
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: ['http://127.0.0.1:5500', 'http://127.0.0.1:5501'],
+    origin: ['http://127.0.0.1:5500', 'http://127.0.0.1:5501', 'http://localhost:3000'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
@@ -28,8 +28,13 @@ app.use(session({
     }
 }));
 
-// Serve static files
-app.use(express.static(path.join(__dirname)));
+// Serve static files from the root directory
+app.use(express.static(__dirname));
+
+// Route for root path
+app.get('/', (req, res) => {
+    res.redirect('/page1.html');
+});
 
 // Debug middleware to log session state
 app.use((req, res, next) => {

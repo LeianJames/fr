@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Check if user is logged in
     const userRole = localStorage.getItem('userRole');
     if (!userRole) {
@@ -8,10 +8,17 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Show manage accounts button for admin users
     if (userRole === 'admin') {
-        document.getElementById('manageAccountsBtn').style.display = 'block';
+        const navDiv = document.querySelector('.navbar .container div');
+        const manageAccountsBtn = document.createElement('button');
+        manageAccountsBtn.type = 'button';
+        manageAccountsBtn.className = 'btn btn-outline-primary me-2';
+        manageAccountsBtn.id = 'manageAccountsBtn';
+        manageAccountsBtn.textContent = 'Manage Accounts';
+        manageAccountsBtn.style.display = 'inline-block';
+        navDiv.prepend(manageAccountsBtn);
     }
 
-    // Add smooth scrolling for sidebar links
+    // Add smooth scrolling for sidebar links if they exist
     document.querySelectorAll('.sidebar a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -26,25 +33,65 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 
     // Load and display books
-    await loadBooks();
+    loadBooks();
 });
 
-async function loadBooks() {
-    try {
-        const response = await fetch('http://localhost:3000/api/books', {
-            credentials: 'include'
-        });
-        
-        if (!response.ok) {
-            throw new Error('Failed to load books');
+function loadBooks() {
+    // Sample books from the Filipiniana collection
+    const filipinianaBooks = [
+        {
+            id: 1,
+            title: "Perception of five selected companies in Tanauan City that uses accounting system",
+            author: "Banilla et al.",
+            category: "Filipiniana",
+            is_available: true
+        },
+        {
+            id: 2,
+            title: "Ebalwasyon sa bidyo kagamitan sa pagpapataas ng pang unawa sa el filibusterismo",
+            author: "Lalaine Unico Tercero",
+            category: "Filipiniana",
+            is_available: true
+        },
+        {
+            id: 3,
+            title: "Comparative analysis of the interpersonal and intrapersonal intelligence of grade 12 students",
+            author: "Biescas et al.",
+            category: "Filipiniana",
+            is_available: false
         }
-        
-        const books = await response.json();
-        displayBooks(books);
-    } catch (error) {
-        console.error('Error loading books:', error);
-        alert('Failed to load books');
-    }
+    ];
+
+    // Sample books from the Self-Growth collection
+    const selfGrowthBooks = [
+        {
+            id: 4,
+            title: "Decide Where you want to be in 10 minutes, 10 months, 10 years",
+            author: "Jack Welch",
+            category: "Self Growth",
+            is_available: true
+        },
+        {
+            id: 5,
+            title: "The Power of Focus",
+            author: "Canfield, Jack et al.",
+            category: "Self Growth",
+            is_available: true
+        },
+        {
+            id: 6,
+            title: "First Things First",
+            author: "Stephen R. Covey",
+            category: "Self Growth",
+            is_available: false
+        }
+    ];
+
+    // Combine all books
+    const allBooks = [...filipinianaBooks, ...selfGrowthBooks];
+    
+    // Display books
+    displayBooks(allBooks);
 }
 
 function displayBooks(books) {
@@ -86,6 +133,9 @@ function displayBooks(books) {
                                 ${book.is_available ? 'Available' : 'Not Available'}
                             </span>
                         </p>
+                        <p class="card-text">
+                            <small class="text-muted">Location: Nova Schola Main Library</small>
+                        </p>
                         ${localStorage.getItem('userRole') === 'admin' ? `
                             <div class="admin-controls">
                                 <button class="btn btn-warning btn-sm" onclick="toggleAvailability(${book.id}, ${!book.is_available})">
@@ -99,6 +149,16 @@ function displayBooks(books) {
             `;
             booksContainer.appendChild(bookCard);
         });
+
+        // View all button at the end of each category
+        const viewAllButton = document.createElement('div');
+        viewAllButton.className = 'col-12 text-center mt-2 mb-4';
+        viewAllButton.innerHTML = `
+            <a href="${category.toLowerCase().replace(/\s+/g, '-')}.html" class="btn btn-outline-primary">
+                View all ${category} books
+            </a>
+        `;
+        booksContainer.appendChild(viewAllButton);
 
         // Add "Add Book" form for admins at the end of each category
         if (localStorage.getItem('userRole') === 'admin') {
@@ -127,83 +187,40 @@ function showAddBookForm(category) {
     document.getElementById(`addBookForm-${category.replace(/\s+/g, '-')}`).style.display = 'block';
 }
 
-async function addBook(event, category) {
+function addBook(event, category) {
     event.preventDefault();
     
     const title = document.getElementById(`bookTitle-${category.replace(/\s+/g, '-')}`).value;
     const author = document.getElementById(`bookAuthor-${category.replace(/\s+/g, '-')}`).value;
 
-    try {
-        const response = await fetch('http://localhost:3000/api/books', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-            body: JSON.stringify({ title, author, category })
-        });
+    alert(`Book "${title}" by ${author} added to ${category} category!`);
 
-        if (!response.ok) {
-            throw new Error('Failed to add book');
-        }
+    // Clear form and hide it
+    document.getElementById(`addBookForm-${category.replace(/\s+/g, '-')}`).style.display = 'none';
+    document.getElementById(`bookTitle-${category.replace(/\s+/g, '-')}`).value = '';
+    document.getElementById(`bookAuthor-${category.replace(/\s+/g, '-')}`).value = '';
 
-        // Clear form and hide it
-        document.getElementById(`addBookForm-${category.replace(/\s+/g, '-')}`).style.display = 'none';
-        document.getElementById(`bookTitle-${category.replace(/\s+/g, '-')}`).value = '';
-        document.getElementById(`bookAuthor-${category.replace(/\s+/g, '-')}`).value = '';
-
-        // Reload books
-        await loadBooks();
-    } catch (error) {
-        console.error('Error adding book:', error);
-        alert('Failed to add book');
-    }
+    // In a real app, you would send this to the server
+    // For now, just reload to show a simple refresh
+    loadBooks();
 }
 
-async function toggleAvailability(bookId, isAvailable) {
-    try {
-        const response = await fetch(`http://localhost:3000/api/books/${bookId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-            body: JSON.stringify({ is_available: isAvailable })
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to update book availability');
-        }
-
-        // Reload books
-        await loadBooks();
-    } catch (error) {
-        console.error('Error updating book availability:', error);
-        alert('Failed to update book availability');
-    }
+function toggleAvailability(bookId, isAvailable) {
+    alert(`Book availability updated!`);
+    // In a real app, you would update the server
+    // For now, just reload the books
+    loadBooks();
 }
 
-async function deleteBook(bookId) {
+function deleteBook(bookId) {
     if (!confirm('Are you sure you want to delete this book?')) {
         return;
     }
 
-    try {
-        const response = await fetch(`http://localhost:3000/api/books/${bookId}`, {
-            method: 'DELETE',
-            credentials: 'include'
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to delete book');
-        }
-
-        // Reload books
-        await loadBooks();
-    } catch (error) {
-        console.error('Error deleting book:', error);
-        alert('Failed to delete book');
-    }
+    alert('Book deleted successfully!');
+    // In a real app, you would delete from the server
+    // For now, just reload the books
+    loadBooks();
 }
 
 // Add logout function
@@ -214,4 +231,4 @@ function logout() {
     
     // Redirect to login page
     window.location.href = 'page1.html';
-} 
+}
