@@ -34,7 +34,7 @@ const books = [
     },
     {
       id: 5,
-      title: "Crimonological Rseearch Mode Simple",
+      title: "Crimonological Research Made Simple",
       author: "Mario A. Garcia.",
       description: "Book - 116 pages;",
       location: "Nova Schola Main Library",
@@ -60,7 +60,7 @@ const books = [
 
     {
         id: 8,
-        title: "Fovensic Chemistry and Technology",
+        title: "Forensic Chemistry and Technology",
         author: "Arlyn M. Dasal, Ronaldo Q Santos,",
         description: "Book - 232 pages;",
         location: "Nova Schola Main Library",
