@@ -6,6 +6,7 @@
     <title>NST Library</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body> 
     <nav class="navbar bg-body-tertiary">
@@ -24,10 +25,7 @@
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="text-white">NST | Library</h2>
         
-            <div>
-              <a href="#" class="text-white me-3">My Account</a>
-              <a href="#" class="text-white">Feedback</a>
-            </div>
+           
           </div>
           
           <!-- Search bar section with correct IDs -->
@@ -38,8 +36,7 @@
               </button>
               <ul class="dropdown-menu" aria-labelledby="searchDropdown">
                 <li><a class="dropdown-item" href="#">Title</a></li>
-                <li><a class="dropdown-item" href="#">Author</a></li>
-                <li><a class="dropdown-item" href="#">Category</a></li>
+    
               </ul>
             </div>
             
@@ -57,7 +54,7 @@
     <!-- Help section -->
     <div class="container-fluid bg-secondary py-2">
         <div class="container">
-          <a href="#" class="text-white text-decoration-none">Help ▸</a>
+          <a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#helpModal">Help ▸</a>
         </div>
     </div>
       
@@ -180,13 +177,142 @@
                 </div>
 
                 <div style="text-align: right;">
-                    <p style="margin: 2px 0;"><strong>Hours:</strong> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                    <p style="margin: 2px 0;"><strong>Hours:</strong> Mon-Sat: 7:30 AM - 4:30 PM</p>
                     <p style="margin: 2px 0;"><strong>Location:</strong> Building C 2nd Floor</p>
-                    <p style="margin: 2px 0;"><a href="#" style="color: white; text-decoration: none;">Contact Us</a></p>
+                    <p style="margin: 2px 0;"><strong>Email:</strong>  contact@nst.edu.ph </p>
+                    <p style="margin: 2px 0;"><strong>Number:</strong> 0920 803 0527</p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- FAQS information -->
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="helpModalLabel">Library Help & FAQs</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="accordion" id="faqAccordion">
+              <!-- How to Search -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#searchHelp">
+                    <i class="bi bi-search me-2"></i> How do I search for books?
+                  </button>
+                </h2>
+                <div id="searchHelp" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    You can search for books using the search bar at the top of the page. Enter keywords related to the book title. The search will look through all available books in our collection. Alternatively, there is also a searchbar inside each book sections to provide more accuracy.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Book Categories -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#categoriesHelp">
+                    <i class="bi bi-book me-2"></i> What are the different book categories?
+                  </button>
+                </h2>
+                <div id="categoriesHelp" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Our library is organized into several categories:
+                    <ul>
+                      <li>Academics - Mathematics, Science, and other academic subjects</li>
+                      <li>Financials - Books about finance and economics</li>
+                      <li>Technology - Books about computers and digital technology</li>
+                      <li>Fiction - Novels and stories</li>
+                      <li>Thesis - Research papers and academic works</li>
+                      <li>Religion - Books about faith and spirituality</li>
+                      <li>Self Growth - Personal development books</li>
+                      <li>Criminology - Books about law enforcement and criminal justice</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Book Availability -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#availabilityHelp">
+                    <i class="bi bi-check-circle me-2"></i> How do I check if a book is available?
+                  </button>
+                </h2>
+                <div id="availabilityHelp" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    When you find a book you're interested in, click the "Check Availability" button. This will show you whether the book is currently available for borrowing and its location in the library.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Borrowing Books -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#borrowingHelp">
+                    <i class="bi bi-bookmark-check me-2"></i> How do I borrow a book?
+                  </button>
+                </h2>
+                <div id="borrowingHelp" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    To borrow a book:
+                    <ol>
+                      <li>Find the book you want in our catalog</li>
+                      <li>Check its availability</li>
+                      <li>Visit the library during operating hours</li>
+                      <li>Present your student ID at the circulation desk</li>
+                      <li>A librarian will assist you with the borrowing process</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Library Hours -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hoursHelp">
+                    <i class="bi bi-clock me-2"></i> What are the library hours?
+                  </button>
+                </h2>
+                <div id="hoursHelp" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    The library is open:
+                    <ul>
+                      <li>Monday to Saturday: 7:30 AM - 4:30 PM</li>
+                      <li>Closed on Sundays and holidays</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact Information -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#contactHelp">
+                    <i class="bi bi-envelope me-2"></i> How can I contact the library?
+                  </button>
+                </h2>
+                <div id="contactHelp" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    You can contact the library through:
+                    <ul>
+                      <li>Location: Building C, 2nd Floor</li>
+                      <li>Email: contact@nst.edu.ph</li>
+                      <li>Phone: 0920 803 0527</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
