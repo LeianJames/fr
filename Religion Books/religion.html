@@ -3,45 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NST E-Library</title>
-    <link rel="stylesheet" href="Religion.Css">
+    <title>NST E-Library - religion Books</title>
+    <link rel="stylesheet" href="religion.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
-<!-- Search Results Page Template for Subject Categories -->
-<div class="search-results-container">
-    <!-- Right Content - Search Results -->
-    <div class="results-content">
-      <div class="results-header">
-        <h2><span id="totalResults">85</span> results for "Religion"</h2>
-        <div class="results-controls">
-          <select class="sort-by">
-            <option>Sort by relevance</option>
-            <option>Sort by date</option>
-            <option>Sort by title</option>
-          </select>
-          <select class="per-page" id="itemsPerPage">
-            <option value="3">3 per page</option>
-            <option value="5">5 per page</option>
-            <option value="10" selected>10 per page</option>
-          </select>
+    <div class="search-results-container">
+        <div class="results-content">
+            <div class="results-header">
+                <h2><span id="totalResults">0</span> results for "religion"</h2>
+                <div class="results-controls">
+                    <select class="sort-by" id="sortBy">
+                        <option value="relevance">Sort by relevance</option>
+                        <option value="title">Sort by title</option>
+                        <option value="author">Sort by author</option>
+                    </select>
+                    <select class="per-page" id="itemsPerPage">
+                        <option value="3">3 per page</option>
+                        <option value="5">5 per page</option>
+                        <option value="10" selected>10 per page</option>
+                    </select>
+                    <div id="adminControls" style="display: none;">
+                        <button class="admin-button" id="addBookBtn">Add New Book</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Search bar -->
+            <div class="search-bar mb-4">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search by title or author...">
+                <button id="searchBtn" class="btn btn-primary mt-2">Search</button>
+            </div>
+            
+            <!-- Results List -->
+            <div class="results-list" id="bookResults">
+                <!-- Books will be loaded here by JavaScript -->
+            </div>
+            
+            <!-- Pagination Controls -->
+            <div class="pagination" id="paginationControls">
+                <!-- Pagination buttons will be generated here -->
+            </div>
         </div>
-      </div>
-      
-      <!-- Results List -->
-      <div class="results-list" id="bookResults">
-        <!-- Books will be loaded here by JavaScript -->
-      </div>
-      
-      <!-- Pagination Controls -->
-      <div class="pagination" id="paginationControls">
-        <!-- Pagination buttons will be generated here -->
-      </div>
     </div>
-  </div>
 
-  <script src="ReligionDatabase.js"></script>
-  <script src="ReligionPagination.js"></script>
+    <!-- Add Book Modal -->
+    <div class="availability-popup" id="addBookModal">
+        <div class="popup-content">
+            <span class="close-popup" id="closeAddBookModal">&times;</span>
+            <h3>Add New Book</h3>
+            <form id="addBookForm">
+                <div class="mb-3">
+                    <label for="bookTitle" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="bookTitle" required>
+                </div>
+                <div class="mb-3">
+                    <label for="bookAuthor" class="form-label">Author</label>
+                    <input type="text" class="form-control" id="bookAuthor" required>
+                </div>
+                <div class="mb-3">
+                    <label for="bookDescription" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="bookDescription" placeholder="Book - X pages;" required>
+                </div>
+                <div class="mb-3">
+                    <label for="bookLocation" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="bookLocation" value="Nova Schola Main Library" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Book</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Delete Book Modal -->
+    <div class="availability-popup" id="deleteBookModal">
+        <div class="popup-content">
+            <span class="close-popup" id="closeDeleteBookModal">&times;</span>
+            <h3>Delete Book</h3>
+            <p>Are you sure you want to delete "<span id="deleteBookTitle"></span>"?</p>
+            <p>This action cannot be undone.</p>
+            <button id="confirmDeleteBtn" class="btn btn-danger">Delete Book</button>
+            <button id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+    
+    <!-- Availability Modal -->
+    <div class="availability-popup" id="availabilityPopup">
+        <div class="popup-content">
+            <span class="close-popup" id="closeAvailabilityPopup">&times;</span>
+            <h3 id="availabilityTitle">Book Availability</h3>
+            <p id="availabilityStatus"></p>
+            <p id="availabilityLocation"></p>
+            <p id="availabilityMessage"></p>
+        </div>
+    </div>
+
+    <script src="religiondatabase.js"></script>
+    <script src="religionpagination.js"></script>
 </body>
 </html>

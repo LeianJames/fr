@@ -58,7 +58,7 @@ let books = [
   },
   {
     id: 8,
-    title: "Oral Communication in conetent",
+    title: "Oral Communication in context",
     author: "Ramona S. Flores,",
     description: "Book - 183 pages;",
     location: "Nova Schola Main Library",
@@ -82,7 +82,7 @@ let books = [
   },
   {
     id: 11,
-    title: "Algebra for the viterly confused",
+    title: "Algebra for the Bitterly confused",
     author: "Stephens Henrry,",
     description: "Book - 201 pages;",
     location: "Nova Schola Main Library",
