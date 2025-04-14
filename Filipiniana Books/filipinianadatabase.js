@@ -16,7 +16,7 @@ const books = [
     },
     {
       id: 3,
-      title: "Comparative analysis of the interpersonal and intrapersonal intelligence of grade 12 senior high school students of Nova Schola Tanauan in academic and technical vocational track basis for developing an oction plan",
+      title: "Comparative analysis of the interpersonal and intrapersonal intelligence of grade 12 senior high school students of Nova Schola Tanauan in academic and technical vocational track basis for developing an action plan",
       author: "Biescas et al.",
       description: "Book - 51 pages;",
       location: "Nova Schola Main Library"
