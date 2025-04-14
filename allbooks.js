@@ -380,7 +380,7 @@ const academicBooks = [
       author: " John Smith",
       description: "Book - 300 pages;",
       location: "Nova Schola Main Library",
-      category: "Fiction"
+      category: "criminology"
     },
 
     {
@@ -389,7 +389,7 @@ const academicBooks = [
       author: " John Smith",
       description: "Book - 450 pages;",
       location: "Nova Schola Main Library",
-      category: "Fiction"
+      category: "criminology"
     },
 
     {
@@ -398,7 +398,7 @@ const academicBooks = [
       author: " Robert Johnson",
       description: "Book - 500 pages;",
       location: "Nova Schola Main Library",
-      category: "Fiction"
+      category: "criminology"
     },
 
     {
@@ -407,7 +407,7 @@ const academicBooks = [
       author: " Sarah Williams",
       description: "400 pages;",
       location: "Nova Schola Main Library",
-      category: "Fiction"
+      category: "criminology"
     },
 
     {
@@ -416,14 +416,10 @@ const academicBooks = [
       author: " Michael Brown",
       description: "Book - 350 pages;",
       location: "Nova Schola Main Library",
-      category: "Fiction"
+      category: "criminology"
     },
 
-    
-
-
-
-
+  
 
   ] 
 
@@ -481,8 +477,6 @@ const academicBooks = [
       location: "Nova Schola Main Library",
       category: "Self-Growth"
     },
-
-
 
 
 {
@@ -633,14 +627,6 @@ const academicBooks = [
     },
 
 
-
-
-
-    
-
-
-
-
   ]
 
   
@@ -657,15 +643,11 @@ const academicBooks = [
       ...filipinianaBooks,
 
     ],
-    "Articles": [], // You can add article data here
-    "Website": []  // You can add website data here
+    "Articles": [], // You can add article data here, pero leave this blank 
+    "Website": []  // You can add website data here, pero leave this blank 
   };
   
   
-
-
-
-
   // Function to get all book titles for autocomplete
   function getAllTitles() {
     const titles = [];
