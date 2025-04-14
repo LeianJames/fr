@@ -108,12 +108,12 @@ let books = [
 
 // Function to save books data to localStorage
 function saveBooks() {
-  localStorage.setItem('libraryBooks', JSON.stringify(books));
+  localStorage.setItem('academics', JSON.stringify(books));
 }
 
 // Function to load books data from localStorage
 function loadBooks() {
-  const savedBooks = localStorage.getItem('libraryBooks');
+  const savedBooks = localStorage.getItem('academics');
   if (savedBooks) {
     books = JSON.parse(savedBooks);
   }
