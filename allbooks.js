@@ -103,8 +103,12 @@ const academicBooks = [
       category: "Technology"
     },
     {
-
-
+      id: 3,
+      title: "Clean Code",
+      author: "Robert C. Martin",
+      description: "Book - 464 pages;",
+      location: "Nova Schola Main Library",
+      category: "Technology"
     }
 
 

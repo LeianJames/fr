@@ -48,7 +48,7 @@ async function updatePasswords() {
         const students = [
             { student_id: '2023SHS0176', password: 'JADE' },
             { student_id: '2023SHS0008', password: 'XYLOPHONE' },
-            { student_id: '2023003', password: 'santos' }
+            { student_id: '2023SHS0053', password: 'JEROME' }
         ];
 
         for (const student of students) {
@@ -154,7 +154,7 @@ async function initializeDatabase() {
         const students = [
             { student_id: '2023SHS0176', password: 'JADE' },
             { student_id: '2023SHS0008', password: 'XYLOPHONE' },
-            { student_id: '2023003', password: 'santos' }
+            { student_id: '2023SHS0053', password: 'JEROME' }
         ];
 
         for (const student of students) {
